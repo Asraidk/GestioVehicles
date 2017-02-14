@@ -23,17 +23,17 @@ public class GestionarLlistes {
 		double velocitatMitja;
 		String idTripulant;
 		
-		consumMinim=lectorTipus.comprovarDouble("Digues el consum minim del vehicle:");			
+		consumMinim=lectorTipus.comprovarDouble("Digues el consum minim del vehicle: ");			
 		
-		capacitatMaxima=lectorTipus.comprovarDouble("Digues la carrega maxima.");
+		capacitatMaxima=lectorTipus.comprovarDouble("Digues la carrega maxima: ");
 		
-		carregaActual=lectorTipus.comprovarDouble("Digues la carrega actual");
+		carregaActual=lectorTipus.comprovarDouble("Digues la carrega actual: ");
 		
-		consumPerKilometre=lectorTipus.comprovarDouble("Posa el consum per kilometre del vehicle.");
+		consumPerKilometre=lectorTipus.comprovarDouble("Posa el consum per kilometre del vehicle: ");
 		
-		identificador=lectorTipus.comprovarString("Identificador del vehicle");
+		identificador=lectorTipus.comprovarString("Identificador del vehicle: ");
 		
-		velocitatMitja=lectorTipus.comprovarDouble("Velocitat mitja del vehicle.");
+		velocitatMitja=lectorTipus.comprovarDouble("Velocitat mitja del vehicle: ");
 		
 		idTripulant="";
 		
@@ -67,9 +67,9 @@ public class GestionarLlistes {
 		int costAveries;
 		Vehicle tempVehicleTerrestre;
 		
-		numeroCavalls=lectorTipus.comprovarInt("Digues le numero de caballs del vehicle");
-		numeroAveries=lectorTipus.comprovarInt("Digues le numero d'averies del vehicle");
-		costAveries=lectorTipus.comprovarInt("Digues el cost de les averies del vehicle");
+		numeroCavalls=lectorTipus.comprovarInt("Digues le numero de caballs del vehicle: ");
+		numeroAveries=lectorTipus.comprovarInt("Digues le numero d'averies del vehicle: ");
+		costAveries=lectorTipus.comprovarInt("Digues el cost de les averies del vehicle: ");
 	
 		try{
 			tempVehicleTerrestre = new Terrestre(consumMinim, carregaActual, capacitatMaxima, consumPerKilometre, tipusVehicle, identificador, velocitatMitja,
@@ -94,14 +94,14 @@ public class GestionarLlistes {
 		boolean dataCorrecta=true;
 		Vehicle tempVehicleMaritim;
 		
-		eslora=lectorTipus.comprovarInt("Digues el numero d'eslora");
-		manega=lectorTipus.comprovarInt("Digues el tamany de la manega");
-		anyFlotacio=lectorTipus.comprovarInt("Quin va ser el any de flotacio");
-		data=lectorTipus.comprovarString("Quina es la data de construcio recorda indtroduir: dd/mm/aaaa");
+		eslora=lectorTipus.comprovarInt("Digues el numero d'eslora: ");
+		manega=lectorTipus.comprovarInt("Digues el tamany de la manega: ");
+		anyFlotacio=lectorTipus.comprovarInt("Quin va ser el any de flotacio: ");
+		data=lectorTipus.comprovarString("Quina es la data de construcio !recorda mode (dd/mm/aaaa): ");
 		
 		StringTokenizer st = new StringTokenizer(data,"/");
 
-        System.out.println("Hay un total de: "+st.countTokens()+" tokens.");
+       
        try{
     	   dia=Integer.parseInt(st.nextToken());
            mes=Integer.parseInt(st.nextToken());
@@ -173,7 +173,7 @@ public class GestionarLlistes {
 			String nom = propietats.getProperty("nom");
 			String especialitat = propietats.getProperty("especialitatVehicle");
 			char especialitatParse= especialitat.charAt(0);
-			boolean assignat = propietats.getProperty("assignat") != null;
+			/**boolean assignat = propietats.getProperty("assignat") != null; Tinc problemsa par agafar el false del propertyes y el forço al contructor**/
 			String data = propietats.getProperty("dataNaixement");
 		   
 		   	StringTokenizer st = new StringTokenizer(data,"/");
@@ -188,7 +188,7 @@ public class GestionarLlistes {
 		    }
 		    
 		   if(dataCorrecta){
-		    	Personal tempPersonal= new Personal(codi,nom,especialitatParse,assignat,dia,mes,any);
+		    	Personal tempPersonal= new Personal(codi,nom,especialitatParse,false,dia,mes,any);
 		    	llistaPersonal.add(tempPersonal);
 		    }else{
 		    	System.out.println("Problemes en les dates que tenim en els arxius properties");
@@ -206,22 +206,22 @@ public class GestionarLlistes {
 	
 	public void mostrarInformacioVehicles(){
 		
+		System.out.println("+--------------------------------------+");
 	    for(int x=0;x<llistaVehicles.size();x++) {
-	        //System.out.println(llistaVehicles.get(x));
-	    	Vehicle v = (Vehicle)llistaVehicles.get(x);
-	    	System.out.println(v.informacioVehicle());
-	    	System.out.println("El vehicle consumeix: "+v.consumVehicle());
+	    	Vehicle vehicleTemporal = (Vehicle)llistaVehicles.get(x);
+	    	System.out.print(vehicleTemporal.informacioVehicle());
+	    	System.out.println("| El vehicle consumeix: "+vehicleTemporal.consumVehicle());
 	    	
+	    	for(int y=0;y<llistaPersonal.size();y++) {
+		    	Personal persona = (Personal)llistaPersonal.get(y);
+		    	if(vehicleTemporal.getTipusVehicle()==persona.getEspecialitatVehicle()){
+		    		System.out.println(persona.informacioPersonal());
+		    	}
+		      }
+	    	System.out.println("+--------------------------------------+");
 	      }
 	    
-	    for(int x=0;x<llistaPersonal.size();x++) {
-	        //System.out.println(llistaVehicles.get(x));
-	    	Personal v = (Personal)llistaPersonal.get(x);
-	    	System.out.println(v.getNIF());
-	    	System.out.println(v.getNom());
-	    	System.out.println(v.getEspecialitatVehicle());
-	    	
-	      }
+	    
 	}
 	
 	public void assignarUsuris(){
@@ -229,35 +229,25 @@ public class GestionarLlistes {
 		 for(int x=0;x<llistaPersonal.size();x++) {;
 		    	Personal personaEnTractament = (Personal)llistaPersonal.get(x);
 		    	
-		    	if(personaEnTractament.isAssignat()!=false){
+		    	if(personaEnTractament.isAssignat()==false){
 		    		
 		    		for(int z=0;z<llistaVehicles.size();z++) {
 		    	    	Vehicle vehicleTemporal = (Vehicle)llistaVehicles.get(z);
 		    	    	
-		    	    	if(vehicleTemporal.getIdTripulant().equals("")&&(vehicleTemporal.getTipusVehicle()==personaEnTractament.getEspecialitatVehicle())){
-		    	    		
-		    	    		
+		    	    	if(vehicleTemporal.getIdTripulant().equals("")&&(vehicleTemporal.getTipusVehicle()==personaEnTractament.getEspecialitatVehicle())
+		    	    			&&(personaEnTractament.isAssignat()==false)){  	    		
+		    	    	
 		    	    		vehicleTemporal.setIdTripulant(personaEnTractament.getNIF());
-		    	    		
-		    	    		
 		    	    		personaEnTractament.setAssignat(true);
+		    	    		System.out.println("El conductor "+personaEnTractament.getNom()+" assignat al vehicle "+ vehicleTemporal.getIdentificador());
 		    	    	}
 		    	      }
-		    	
-		    		
-		    		
-		    		
 		    		
 		    	}else{
 		    		System.out.println("El conductor "+personaEnTractament.getNom()+" ja esta assignat.");
 		    	}
 		    	
-		 }
-		
-		
-		
-		
-		
+		 }	
 	}
 	
 }

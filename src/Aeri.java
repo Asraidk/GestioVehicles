@@ -15,7 +15,7 @@ public class Aeri extends Vehicle {
 	
 	@Override
 	public double consumVehicle() {
-		if(this.capacitatMaxima==0){
+		if(this.capacitatMaxima!=0){
 			return Math.round(this.consumMinim+((this.carregaActual/this.capacitatMaxima)*this.consumPerKilometre)+
 					(this.numeroMotors*this.tempsDeFuncionament));
 		}
@@ -26,8 +26,8 @@ public class Aeri extends Vehicle {
 	}
 	public String informacioVehicle(){
 		return(super.informacioVehicle()+
-				"Numero de motors: "+this.numeroMotors+"\n"+
-				"Temps de funcionament: "+this.tempsDeFuncionament+"\n");
+				"| Numero de motors: "+this.numeroMotors+"\n"+
+				"| Temps de funcionament: "+this.tempsDeFuncionament+"\n");
 	}
 	//GET I SET\\
 	public int getNumeroMotors() {

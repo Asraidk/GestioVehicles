@@ -1,15 +1,25 @@
 import java.util.Scanner;
 
 public class Test {
-
+	//Static que usarem com clases per cridar els seus metodes
 	static Scanner sc;
 	static GestionarLlistes gestorVehicles;
 	public static void main(String[] args) {
-	boolean bandera=true;
+		//Variables i instancias pera crear nuestro menu de trabajo
+		boolean bandera=true;
 		int i;
 		sc = new Scanner(System.in);
 		gestorVehicles=new GestionarLlistes();
+		/*Menu recurente en el que comprovamos el valor que introduce un usuario y llamaremos de la clase gestioLListas un metodo que
+		usaremos para esa funcion que quiere el usuari
+		*case1to3-> afegir vehicles/depend tipus
+		*case4-> afegir els arxius propertiees
+		*case5-> gestio de vehicles amb usuari els junten
+		*case6-> mostrara tota la info de vehicle mes el su conductor adjuntat
+		****case7 (por implementar el amfibio)*****
+		*/
 		do{
+			System.out.println("+===========================================+");
 			System.out.println("Escull una opció de les següents:");
 			System.out.println("1.- Afegir vehicle Terrestre.");
 			System.out.println("2.- Afegir vehicle Marítim.");
@@ -18,6 +28,7 @@ public class Test {
 			System.out.println("5.- Assignar personal disponible als vehicles.");
 			System.out.println("6.- Mostrar les dades dels vehicles.");
 			System.out.println("0.- Sortir");
+			System.out.println("+===========================================+");
 			
 		    i = sc.nextInt();
 		    switch (i){
@@ -42,7 +53,6 @@ public class Test {
 		    
 		    case 6: gestorVehicles.mostrarInformacioVehicles();break;
 		    }
-		}while (i!=0);	
-		
+		}while (i!=0);			
 	}
 }

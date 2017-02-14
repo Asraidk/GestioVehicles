@@ -23,13 +23,13 @@ public abstract class Vehicle {
 	
 	
 	public String informacioVehicle(){
-		return("Tipus de vehicle: "+this.tipusVehicle+"\n"+
-				"Identificador vehicle: "+this.identificador+"\n"+
-				"Consum minim. Vehicle: "+this.consumMinim+"\n"+
-				"Carrega actual del vehicle: "+this.carregaActual+"\n"+
-				"Capacitat Max del vehicle: "+this.capacitatMaxima+"\n"+
-				"Consum per KM: "+this.consumPerKilometre+"\n"+
-				"ID del tripulant: "+this.idTripulant+"\n"				
+		return("| Tipus de vehicle: "+this.tipusVehicle+"\n"+
+				"| Identificador vehicle: "+this.identificador+"\n"+
+				"| Consum minim. Vehicle: "+this.consumMinim+"\n"+
+				"| Carrega actual del vehicle: "+this.carregaActual+"\n"+
+				"| Capacitat Max del vehicle: "+this.capacitatMaxima+"\n"+
+				"| Consum per KM: "+this.consumPerKilometre+"\n"+
+				"| ID del tripulant: "+this.idTripulant+"\n"				
 				);
 	}
 	

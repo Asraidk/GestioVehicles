@@ -7,10 +7,10 @@ public class ComprovadorTipus {
 	public int comprovarInt(String missatge){
 		
 		int valor;
-		System.out.println(missatge);
+		System.out.print(missatge);
 		while(!teclat.hasNextInt()){
 			teclat.nextLine();
-			System.out.println("No has introduit un valor enter."+missatge);
+			System.out.print("No has introduit un valor enter."+missatge);
 		}
 		valor = teclat.nextInt();
 		teclat.nextLine();
@@ -22,10 +22,10 @@ public class ComprovadorTipus {
 		
 		double valor;
 		
-		System.out.println(missatge);
+		System.out.print(missatge);
 		while(!teclat.hasNextDouble()){
 			teclat.nextLine();
-			System.out.println("No has introduit una valor real."+missatge);
+			System.out.print("No has introduit una valor real."+missatge);
 		}
 		valor = teclat.nextDouble();
 		teclat.nextLine();
@@ -35,10 +35,10 @@ public class ComprovadorTipus {
 	public String comprovarString(String missatge){
 		
 		String valor;
-		System.out.println(missatge);
+		System.out.print(missatge);
 			while(!teclat.hasNext()){
 				teclat.nextLine();
-				System.out.println("No has introduit una cadena de caracters."+missatge);
+				System.out.print("No has introduit una cadena de caracters."+missatge);
 			}
 		valor= teclat.next();
 		teclat.nextLine();

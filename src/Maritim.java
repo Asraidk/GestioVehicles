@@ -20,7 +20,7 @@ public class Maritim extends Vehicle {
 	
 	@Override
 	public double consumVehicle() {
-		if(this.capacitatMaxima==0){
+		if(this.capacitatMaxima!=0){
 			return Math.round(this.consumMinim+((this.carregaActual/this.capacitatMaxima)*this.consumPerKilometre)+(this.eslora+
 					this.manega+this.anyFlotacio)-(dataDeConstruccio.getDia()+dataDeConstruccio.getMes()+dataDeConstruccio.getAny()));
 		}
@@ -31,10 +31,10 @@ public class Maritim extends Vehicle {
 	}
 	public String informacioVehicle(){
 		return(super.informacioVehicle()+
-				"Tamany de la eslora: "+this.eslora+"\n"+
-				"Tamany de la manega: "+this.manega+"\n"+
-				"Any de flotacio: "+this.anyFlotacio+"\n"+
-				"Data construcio["+this.dataDeConstruccio.getDia()+"/"+this.dataDeConstruccio.getMes()+"/"+this.dataDeConstruccio.getAny()+"]\n");
+				"| Tamany de la eslora: "+this.eslora+"\n"+
+				"| Tamany de la manega: "+this.manega+"\n"+
+				"| Any de flotacio: "+this.anyFlotacio+"\n"+
+				"| Data construcio["+this.dataDeConstruccio.getDia()+"/"+this.dataDeConstruccio.getMes()+"/"+this.dataDeConstruccio.getAny()+"]\n");
 	}
 	public int getEslora() {
 		return eslora;

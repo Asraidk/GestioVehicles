@@ -18,6 +18,13 @@ public class Personal {
 		this.dataNaixement=dataTemporal;
 	}
 	
+	public String informacioPersonal(){
+		return("El nom del tripulant d'aquest vehicle: "+this.nom+"\n"+
+				"Data neixement: "+this.dataNaixement+"\n"+
+				"Codi del tripulant"+this.NIF
+				);
+				
+	}
 	
 	public String getNIF() {
 		return NIF;

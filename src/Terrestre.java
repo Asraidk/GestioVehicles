@@ -17,20 +17,19 @@ public class Terrestre extends Vehicle  {
 	
 	@Override
 	public double consumVehicle() {
-		if(this.capacitatMaxima==0){
+		if(this.capacitatMaxima!=0){
 			return Math.round(this.consumMinim+((this.carregaActual/this.capacitatMaxima)*this.consumPerKilometre)+
 					(this.numeroAveries*this.costAveries));
 		}
 		else{
 			return 0;
 		}
-		
 	}
 	public String informacioVehicle(){
 		return(super.informacioVehicle()+
-				"Numero de cavalls del vehicle: "+this.numeroCavalls+"\n"+
-				"Numero de averies: "+this.numeroAveries+"\n"+
-				"Cost total de les averies: "+this.costAveries+"\n");
+				"| Numero de cavalls del vehicle: "+this.numeroCavalls+"\n"+
+				"| Numero de averies: "+this.numeroAveries+"\n"+
+				"| Cost total de les averies: "+this.costAveries+"\n");
 	}
 	
 
