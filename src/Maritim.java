@@ -1,11 +1,11 @@
-
+//clase filla de vehicle
 public class Maritim extends Vehicle {
-
+	//variables que nomes te el fill maritim
 	private int eslora;
 	private int manega;
 	private int anyFlotacio;
 	private Data dataDeConstruccio;
-	
+	//constructo de clase filla maritim, cridan tambe al pare
 	public Maritim(double consumMinim, double carregaActual, double capacitatMaxima, double consumPerKilometre,
 			char tipusVehicle, String identificador, double velocitatMitja, String idTripulant,
 			int eslora,int manega,int anyFlotacio,int dia,int mes,int any) {
@@ -13,11 +13,12 @@ public class Maritim extends Vehicle {
 				idTripulant);
 		this.eslora=eslora;
 		this.manega=manega;
-		this.anyFlotacio=anyFlotacio;		
+		this.anyFlotacio=anyFlotacio;
+		//clase data constructor
 		Data dataTemporal=new Data(dia,mes,any);
 		this.dataDeConstruccio=dataTemporal;
 	}
-	
+	//clase abstracta implementada per el fill utilitza una logica diferent per cada override
 	@Override
 	public double consumVehicle() {
 		if(this.capacitatMaxima!=0){
@@ -29,6 +30,7 @@ public class Maritim extends Vehicle {
 		}
 		
 	}
+	//Ampliacio al metode de informacio de vehicle del pare per tal de mostrar tambe nova info del fill
 	public String informacioVehicle(){
 		return(super.informacioVehicle()+
 				"| Tamany de la eslora: "+this.eslora+"\n"+
@@ -36,6 +38,7 @@ public class Maritim extends Vehicle {
 				"| Any de flotacio: "+this.anyFlotacio+"\n"+
 				"| Data construcio["+this.dataDeConstruccio.getDia()+"/"+this.dataDeConstruccio.getMes()+"/"+this.dataDeConstruccio.getAny()+"]\n");
 	}
+	//GET Y SET\\
 	public int getEslora() {
 		return eslora;
 	}
@@ -60,5 +63,4 @@ public class Maritim extends Vehicle {
 	public void setDataDeConstruccio(Data dataDeConstruccio) {
 		this.dataDeConstruccio = dataDeConstruccio;
 	}
-	
 }

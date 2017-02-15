@@ -44,8 +44,9 @@ public class Test {
 		    	gestorVehicles.ActivarUsuaris("Joan");
 		    	gestorVehicles.ActivarUsuaris("Loli");
 		    	gestorVehicles.ActivarUsuaris("Manel");
+		    	System.out.println("Personal introduit satisfactoriament.");//conforme em introduit
 		    	bandera=false;}else{
-		    		System.out.println("Ja em introduit al personal al sistema.");
+		    		System.out.println("Ja em introduit al personal al sistema anteriorment.");//si ja els tenim posat o diem
 		    	}
 		    break;
 		    

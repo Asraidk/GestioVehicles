@@ -1,11 +1,11 @@
 import java.util.Scanner;
-
+//Clase auxiliar utilitzada per fer les lectures del usuari, ames de combrobar tipus
 public class ComprovadorTipus {
-
+	//nuestro teclado lector univresa
 	Scanner teclat = new Scanner(System.in);
-	
+	//metode per lectura de teclat amb el qual comprovem que es un enter el nombre que ha posat l'usuari
 	public int comprovarInt(String missatge){
-		
+		//
 		int valor;
 		System.out.print(missatge);
 		while(!teclat.hasNextInt()){
@@ -14,14 +14,12 @@ public class ComprovadorTipus {
 		}
 		valor = teclat.nextInt();
 		teclat.nextLine();
-		
 		return valor;
 	}
-	
+	//metode per lectura de teclat amb el qual comprovem que es un real el nombre que ha posat l'usuari
 	public double comprovarDouble(String missatge){
-		
-		double valor;
-		
+		//
+		double valor;		
 		System.out.print(missatge);
 		while(!teclat.hasNextDouble()){
 			teclat.nextLine();
@@ -29,9 +27,9 @@ public class ComprovadorTipus {
 		}
 		valor = teclat.nextDouble();
 		teclat.nextLine();
-		
 		return valor;
 	}
+	//metode tonto comprova string, utilitzat mes que res per lleguir
 	public String comprovarString(String missatge){
 		
 		String valor;
@@ -41,11 +39,10 @@ public class ComprovadorTipus {
 				System.out.print("No has introduit una cadena de caracters."+missatge);
 			}
 		valor= teclat.next();
-		teclat.nextLine();
-		
+		teclat.nextLine();		
 		return valor;
 	}
-	
+	//metode que mira si la data introduida es correcta aixo vol dir que el dia existeix el mes i l'any
 	public boolean comprovarData(int dia,int mes,int any){
 		
 		boolean dataCorrecta=true;
@@ -66,7 +63,7 @@ public class ComprovadorTipus {
 		}
 		return dataCorrecta;
 	}
-	
+	//METODES COMPLEMENTARIS A LA DATA, comprovacions mes acurades
 	public boolean comprovarDiasFebrer(int dia,int mes,int any){
 		boolean dataCorreta=false;
 		if ((dia>0 && dia<30)&&(any % 4 == 0) && ((any % 100 != 0) || (any % 400 == 0))){
