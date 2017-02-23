@@ -11,7 +11,7 @@ public class GestionarLlistes {
 	private ArrayList<Vehicle> llistaVehicles= new ArrayList<Vehicle>();
 	private ArrayList<Personal> llistaPersonal= new ArrayList<Personal>();
 	//private int contadorPersonal=0;
-	//METODES PER EL TRACTAMENT DE L?INTRODUICIO DELS VEHICLES DELS DIFERENTS TIPUS\\
+	//METODES PER EL TRACTAMENT DE L'INTRODUICIO DELS VEHICLES DELS DIFERENTS TIPUS\\
 	
 	//metode cridat desde el menu el qual cridar metodes que posibilitaran l'entrada de dades per teclat
 	//per par del usuari, ames de comprovar tipus, depenen de el tipus que arribi es cridaran un dels 3 metodes 
@@ -49,6 +49,11 @@ public class GestionarLlistes {
 			case 3: 
 				tipusVehicle='A';
 				afegirAeri(consumMinim,carregaActual,capacitatMaxima,consumPerKilometre,tipusVehicle,identificador,
+						velocitatMitja, idTripulant);
+				break;
+			case 7: 
+				tipusVehicle='R';
+				afegirAmfibi(consumMinim,carregaActual,capacitatMaxima,consumPerKilometre,tipusVehicle,identificador,
 						velocitatMitja, idTripulant);
 				break;
 		}		
@@ -130,8 +135,8 @@ public class GestionarLlistes {
 		int tempsDeFuncionament;
 		Vehicle tempVehicleAeri;
 		/** lectures per el teclat amb la clase creada per les lecltures i comprovacions*/
-		numeroMotors=lectorTipus.comprovarInt("Digues el numero de motors que te el vehicle");
-		tempsDeFuncionament=lectorTipus.comprovarInt("Digues el temps de funcionament del vehicle");
+		numeroMotors=lectorTipus.comprovarInt("Digues el numero de motors que te el vehicle: ");
+		tempsDeFuncionament=lectorTipus.comprovarInt("Digues el temps de funcionament del vehicle: ");
 		//si tot funciona introduirem el vehicle
 		try{
 			tempVehicleAeri = new Aeri(consumMinim, carregaActual, capacitatMaxima, consumPerKilometre, tipusVehicle, identificador, velocitatMitja,
@@ -238,4 +243,33 @@ public class GestionarLlistes {
 	    	System.out.println("+--------------------------------------+");
 	      }
 	}
+	
+	
+	//metode cridat desde el metode general de vehicle, per genera e introduir a l'array list un vehicle de tipus terrestre
+		private void afegirAmfibi(double consumMinim, double carregaActual, double capacitatMaxima,
+				double consumPerKilometre, char tipusVehicle, String identificador, double velocitatMitja,
+				String idTripulant) {
+			//variables uniques per el terrestre
+			int numeroCavalls;
+			int numeroAveries;
+			int costAveries;
+			Vehicle tempVehicleAmfibi;
+			/** lectures per el teclat amb la clase creada per les lecltures i comprovacions*/
+			numeroCavalls=lectorTipus.comprovarInt("Digues le numero de caballs del vehicle: ");
+			numeroAveries=lectorTipus.comprovarInt("Digues le numero d'averies del vehicle: ");
+			costAveries=lectorTipus.comprovarInt("Digues el cost de les averies del vehicle: ");
+			//control que es genera correctament el objecte
+			try{
+				tempVehicleAmfibi = new Amfibi(consumMinim, carregaActual, capacitatMaxima, consumPerKilometre, tipusVehicle, identificador, velocitatMitja,
+						idTripulant,numeroCavalls,numeroAveries,costAveries);
+				llistaVehicles.add(tempVehicleAmfibi);
+				System.out.println("Vehicle del tipus amfibi introduit satisfactoriament");
+		    } catch(Exception e) { 
+		    	System.out.println("Error al inicialitzar el vehicle del tipus terrestre, no sera introduit al sistema");
+		    }		
+		}
+	
+	
+	
+	
 }

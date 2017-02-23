@@ -1,14 +1,13 @@
-import java.util.Scanner;
 
 public class Test {
 	//Static que usarem com clases per cridar els seus metodes
-	static Scanner sc;
+	static ComprovadorTipus sc;
 	static GestionarLlistes gestorVehicles;
 	public static void main(String[] args) {
 		//Variables i instancias pera crear nuestro menu de trabajo
 		boolean bandera=true;
 		int i;
-		sc = new Scanner(System.in);
+		sc = new ComprovadorTipus();
 		gestorVehicles=new GestionarLlistes();
 		/*Menu recurente en el que comprovamos el valor que introduce un usuario y llamaremos de la clase gestioLListas un metodo que
 		usaremos para esa funcion que quiere el usuari
@@ -30,7 +29,7 @@ public class Test {
 			System.out.println("0.- Sortir");
 			System.out.println("+===========================================+");
 			
-		    i = sc.nextInt();
+		    i = sc.comprovarInt();
 		    switch (i){
 		    case 1:  gestorVehicles.afegirVehicle(i);break;
 		    	
@@ -53,6 +52,7 @@ public class Test {
 		    case 5: gestorVehicles.assignarUsuris(); break;
 		    
 		    case 6: gestorVehicles.mostrarInformacioVehicles();break;
+		    case 7:  gestorVehicles.afegirVehicle(i);break;
 		    }
 		}while (i!=0);			
 	}

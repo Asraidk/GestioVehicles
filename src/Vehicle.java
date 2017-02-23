@@ -20,6 +20,7 @@ public abstract class Vehicle {
 		this.velocitatMitja=velocitatMitja;
 		this.idTripulant=idTripulant;		
 	}	
+	public Vehicle(){};
 	//metode que retorna una cade de string amb l'informacio que volem sobre el nostre vehicle que estem tractan
 	public String informacioVehicle(){
 		return("| Tipus de vehicle: "+this.tipusVehicle+"\n"+

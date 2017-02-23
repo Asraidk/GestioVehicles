@@ -16,6 +16,18 @@ public class ComprovadorTipus {
 		teclat.nextLine();
 		return valor;
 	}
+	//metode igual que l'anterior pero que no controla el misatge
+	public int comprovarInt(){
+		//
+		int valor;
+		while(!teclat.hasNextInt()){
+			teclat.nextLine();
+			System.out.print("No has introduit un valor enter.Torna a provar: ");
+		}
+		valor = teclat.nextInt();
+		teclat.nextLine();
+		return valor;
+	}
 	//metode per lectura de teclat amb el qual comprovem que es un real el nombre que ha posat l'usuari
 	public double comprovarDouble(String missatge){
 		//

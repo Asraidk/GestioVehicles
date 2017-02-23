@@ -2,8 +2,8 @@
 public class Terrestre extends Vehicle  {
 	//variables que nomes te el fill
 	private int numeroCavalls;
-	private int numeroAveries;
-	private int costAveries;
+	protected int numeroAveries;
+	protected int costAveries;
 	//constructor
 	public Terrestre(double consumMinim, double carregaActual, double capacitatMaxima, double consumPerKilometre,
 			char tipusVehicle, String identificador, double velocitatMitja, String idTripulant, int numeroCavalls

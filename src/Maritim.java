@@ -18,6 +18,9 @@ public class Maritim extends Vehicle {
 		Data dataTemporal=new Data(dia,mes,any);
 		this.dataDeConstruccio=dataTemporal;
 	}
+	//constructor buid.
+	public Maritim(){};
+	
 	//clase abstracta implementada per el fill utilitza una logica diferent per cada override
 	@Override
 	public double consumVehicle() {
